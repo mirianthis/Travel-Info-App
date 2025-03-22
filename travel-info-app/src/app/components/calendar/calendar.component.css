@@ -1,0 +1,17 @@
+mat-autocomplete {
+  max-height: 300px;
+  overflow: auto;
+}
+
+mat-option {
+  display: flex;
+  align-items: center;
+}
+
+mat-option img {
+  margin-right: 10px;
+  width: 20px;
+  height: 15px;
+}
+
+

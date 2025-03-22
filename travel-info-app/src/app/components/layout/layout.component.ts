@@ -51,12 +51,12 @@ export class LayoutComponent {
   }
 
   logout(): void {
+    this.router.navigate(['/login']);
     this.authService.logout().subscribe({
       next: res => {
         console.log(res);
         this.storageService.clean();
 
-        this.router.navigate(['/login']);
         window.location.reload();
       },
       error: err => {

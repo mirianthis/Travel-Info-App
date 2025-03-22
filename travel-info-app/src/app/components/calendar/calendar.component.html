@@ -1,1 +1,34 @@
-<p>calendar works!</p>
+<ng-container *ngIf="events.length === 0">
+  <p>No trips planned. Add a country to the calendar!</p>
+</ng-container>
+
+<!-- Select with Autocomplete -->
+<mat-form-field>
+  <input matInput [(ngModel)]="selectedCountry" placeholder="Enter Country Name" [matAutocomplete]="auto" (ngModelChange)="onCountryChange()">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCountrySelect($event.option.value)">
+    <mat-option *ngFor="let country of filteredCountries" [value]="country">
+      <img [src]="country.flags.png" alt="{{ country.name.common }} flag" style="width: 20px; height: 15px;"/>
+      {{ country.name.common }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+<!-- Datepicker Field -->
+<mat-form-field>
+  <input matInput [(ngModel)]="selectedDate" [matDatepicker]="picker" placeholder="Pick a Date">
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="addEvent(selectedCountryDetails, selectedDate!)">
+  Add to Calendar
+</button>
+
+<!-- Calendar View -->
+<mwl-calendar-month-view
+  [viewDate]="viewDate"
+  [events]="events"
+  (eventClicked)="removeEvent($event.event)">
+</mwl-calendar-month-view>
+
+

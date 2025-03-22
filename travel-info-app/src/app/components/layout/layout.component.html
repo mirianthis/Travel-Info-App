@@ -25,6 +25,9 @@
       <a mat-list-item routerLink="/countries" routerLinkActive="active">Countries</a>
       <a mat-list-item routerLink="/favorites" routerLinkActive="active">Favorites</a>
       <a mat-list-item routerLink="/calendar" routerLinkActive="active">Calendar</a>
+      <a *ngIf="showAdminBoard" mat-list-item routerLink="/admin" routerLinkActive="active">Admin Board</a>
+      <a *ngIf="showAgentBoard" mat-list-item routerLink="/agent" routerLinkActive="active">Agent Board</a>
+      <a mat-list-item routerLink="/traveler" routerLinkActive="active">Traveler Board</a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -33,37 +36,3 @@
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
-<!-- <div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">bezKoder</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
-      </li>
-      @if (showAdminBoard) {
-        <li class="nav-item">
-          <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-        </li>
-      }
-      @if (showAgentBoard) {
-        <li class="nav-item">
-          <a href="/agent" class="nav-link" routerLink="mod">Moderator Board</a>
-        </li>
-      }
-      @if (isLoggedIn) {
-        <li class="nav-item">
-          <a href="/traveler" class="nav-link" routerLink="user">User</a>
-        </li>
-      }
-    </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-        </li>
-        <li class="nav-item">
-          <a href class="nav-link" (click)="logout()">LogOut</a>
-        </li>
-      </ul>
-  </nav>
-</div> -->
