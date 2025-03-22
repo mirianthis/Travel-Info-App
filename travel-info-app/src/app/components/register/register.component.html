@@ -1,1 +1,51 @@
-<p>register works!</p>
+<div class="login-container">
+  <form class="login" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <i class="fa fa-dumbbell fa-3x" aria-hidden="true"></i>
+      <h2>CODE GYM</h2>
+
+      <!-- Username Input -->
+      <input type="text" name="username" placeholder="User Name" [(ngModel)]="form.username" required minlength="3" maxlength="20"
+        #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+      <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors['required']">Username is required</div>
+          <div *ngIf="username.errors['minlength']">Username must be at least 3 characters</div>
+          <div *ngIf="username.errors['maxlength']">Username must be at most 20 characters</div>
+      </div>
+
+      <!-- Email Input -->
+      <input type="email" name="email" placeholder="Email" [(ngModel)]="form.email" required email
+        #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
+      <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors['required']">Email is required</div>
+          <div *ngIf="email.errors['email']">Email must be a valid email address</div>
+      </div>
+
+      <!-- Password Input -->
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="form.password" required minlength="6"
+        #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+      <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">Password must be at least 6 characters</div>
+      </div>
+
+      <!-- Submit Button -->
+      <input type="submit" value="Register" />
+
+      <!-- Error Message -->
+      <div class="alert alert-warning" role="alert" *ngIf="f.submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+      </div>
+
+      <!-- Success Message -->
+      <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+      </div>
+
+      <!-- Links -->
+      <div class="links">
+          <a routerLink="/login" style="color: #F44336;">Back to login page</a>
+      </div>
+  </form>
+</div>
+
+<!-- <p-toast></p-toast> -->

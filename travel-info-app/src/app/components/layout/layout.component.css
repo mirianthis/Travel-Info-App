@@ -1,0 +1,25 @@
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  position: absolute;
+  height: 60px;
+  width: 10vw;
+}
+
+.welcome-mgs {
+  color: white;
+}
+
+.mat-toolbar {
+  background-color: lightgray;
+}
+
+.sidenav-container {
+  height: 100dvh;
+}
+
+.sidenav-side {
+  width: 15dvw;
+}
