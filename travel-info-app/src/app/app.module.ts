@@ -32,6 +32,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete'; 
 import { MatOptionModule } from '@angular/material/core';  
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { AdminBoardComponent } from './components/admin-board/admin-board.component';
+import { AgentBoardComponent } from './components/agent-board/agent-board.component';
+import { TravelerBoardComponent } from './components/traveler-board/traveler-board.component';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 
 
 @NgModule({
@@ -45,7 +49,11 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     FavouritesComponent,
     CalendarComponent,
     FilterPipe,
-    CountryDetailComponent
+    CountryDetailComponent,
+    AdminBoardComponent,
+    AgentBoardComponent,
+    TravelerBoardComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,
