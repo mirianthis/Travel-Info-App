@@ -1,0 +1,16 @@
+{
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "submit": "Submit",
+    "cancel": "Cancel"
+  },
+  "countries": {
+    "US": "United States",
+    "ES": "Spain",
+    "FR": "France"
+  }
+}

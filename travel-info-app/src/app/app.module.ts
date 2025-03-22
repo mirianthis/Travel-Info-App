@@ -8,7 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './interceptors/auth.interceptor';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -36,7 +36,13 @@ import { AdminBoardComponent } from './components/admin-board/admin-board.compon
 import { AgentBoardComponent } from './components/agent-board/agent-board.component';
 import { TravelerBoardComponent } from './components/traveler-board/traveler-board.component';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// Function to load translation files
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -74,10 +80,24 @@ import { AccessDeniedComponent } from './components/access-denied/access-denied.
     MatNativeDateModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatOptionModule
-
+    MatOptionModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [httpInterceptorProviders, provideAnimationsAsync('noop')],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  constructor(private translate: TranslateService) {
+
+    // Set default language and load translations
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
+}

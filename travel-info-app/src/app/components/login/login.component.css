@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
 .login-container {
-  background: url('/assets/loginBackground.webp') no-repeat center center;
+  background: url('/assets/images/background.jpg') no-repeat center center;
   background-size: cover;
   height: 100vh;
   display: flex;

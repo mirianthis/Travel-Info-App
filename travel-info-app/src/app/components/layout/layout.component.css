@@ -12,6 +12,14 @@
   color: white;
 }
 
+.language {
+  right: 10vw;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
+
 .mat-toolbar {
   background-color: lightgray;
 }

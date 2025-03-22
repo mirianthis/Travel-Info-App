@@ -4,6 +4,20 @@
   </button>
   <span>Travel Info</span>
   <span class="example-spacer"></span>
+  <div class="language">
+    <mat-icon>language</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="switchLanguage('en')">
+        <span>English</span>
+      </button>
+      <button mat-menu-item (click)="switchLanguage('gr')">
+        <span>Greek</span>
+      </button>
+    </mat-menu>
+  </div>
   <div class="welcome">
     <span class="welcome-mgs">Welcome {{ username }} </span>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">

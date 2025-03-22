@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EventBusService } from '../../services/event-bus.service.ts/event-bus.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-layout',
@@ -25,7 +26,8 @@ export class LayoutComponent {
     private authService: AuthService,
     private storageService: StorageService,
     private router: Router,
-    private eventBusService: EventBusService
+    private eventBusService: EventBusService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -63,5 +65,9 @@ export class LayoutComponent {
         console.log(err);
       }
     });
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
   }
 }
