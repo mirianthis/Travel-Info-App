@@ -1,1 +1,14 @@
-<p>countries works!</p>
+<div class="search-bar">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search for a country..." />
+</div>
+
+<div class="country-grid">
+  <div *ngFor="let country of (getAllCountries$ | async) | filter: searchTerm" class="country-card">
+    <img [src]="country.flags.svg" [alt]="country.name.common" />
+    <h3>{{ country.name.common }}</h3>
+    <p>Capital: {{ country.capital }}</p>
+    <p>Population: {{ country.population | number }}</p>
+    <p>Region: {{ country.region }}</p>
+    <button (click)="viewDetails(country.name.common)">View Details</button>
+  </div>
+</div>

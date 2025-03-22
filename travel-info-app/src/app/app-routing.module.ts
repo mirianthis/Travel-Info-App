@@ -7,6 +7,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { CountriesComponent } from './components/countries/countries.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { CountryDetailComponent } from './components/countries/country-detail/country-detail.component';
 
 const routes: Routes = [
   { 
@@ -25,14 +26,14 @@ const routes: Routes = [
     title: 'register' 
   },
   {
-    path: 'logout',
-    component: LoginComponent,
-    title: 'Logout'
-  },
-  {
     path: '',
     component: LayoutComponent,
     children: [
+      {
+        path: 'logout',
+        component: LoginComponent,
+        title: 'Logout'
+      },
       {
         path: 'dashboard',
         component: DashboardComponent,
@@ -41,7 +42,12 @@ const routes: Routes = [
       {
         path: 'countries',
         component: CountriesComponent,
-        title: 'Countries'
+        title: 'Countries',
+      },
+      {
+        path: 'country/:name',
+        component: CountryDetailComponent,
+        title: 'Country Detail'
       },
       {
         path: 'favorites',

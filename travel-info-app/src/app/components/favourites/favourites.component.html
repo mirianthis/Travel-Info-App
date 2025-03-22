@@ -1,1 +1,7 @@
-<p>favourites works!</p>
+<h2>Favorite Countries</h2>
+<ul>
+  <li *ngFor="let country of favoriteCountries">
+    {{ country }}
+    <button (click)="removeFavorite(country)">Remove</button>
+  </li>
+</ul>

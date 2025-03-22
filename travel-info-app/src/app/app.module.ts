@@ -20,6 +20,8 @@ import {MatListModule } from '@angular/material/list';
 import { CountriesComponent } from './components/countries/countries.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { FilterPipe } from './pipes/filter/filter.pipe';
+import { CountryDetailComponent } from './components/countries/country-detail/country-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     DashboardComponent,
     CountriesComponent,
     FavouritesComponent,
-    CalendarComponent
+    CalendarComponent,
+    FilterPipe,
+    CountryDetailComponent
   ],
   imports: [
     BrowserModule,

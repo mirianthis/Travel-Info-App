@@ -1,0 +1,14 @@
+<div *ngIf="country$ | async as country">
+  <h2>{{ country.name.common }}</h2>
+  <img [src]="country.flags.svg" [alt]="country.name.common" />
+  <p><strong>Capital:</strong> {{ country.capital }}</p>
+  <p><strong>Population:</strong> {{ country.population | number }}</p>
+  <p><strong>Region:</strong> {{ country.region }}</p>
+  <p><strong>Languages:</strong> {{ country.languages | json }}</p>
+  <p><strong>Currencies:</strong> {{ country.currencies | json }}</p>
+  
+  <button (click)="toggleFavorite(country.name.common)">
+    {{ isFavorite ? 'Remove from Favorites' : 'Add to Favorites' }}
+  </button>
+  
+</div>
