@@ -24,7 +24,7 @@ Make sure you have the following installed:
   npm install -g @angular/cli
   ```
 
-Installation Steps
+### Installation Steps
 Clone the repository:
 
  ```sh
