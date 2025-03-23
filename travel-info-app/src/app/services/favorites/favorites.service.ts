@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Favorite } from '../../models/favourites.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,26 +9,26 @@ export class FavoritesService {
 
   constructor() {}
 
-  getFavorites(): string[] {
+  getFavorites(): Favorite[] {
     return JSON.parse(localStorage.getItem(this.storageKey) || '[]');
   }
 
-  addFavorite(countryName: string): void {
+  addFavorite(country: Favorite): void {
     const favorites = this.getFavorites();
-    if (!favorites.includes(countryName)) {
-      favorites.push(countryName);
+    if (!favorites.some(fav => fav.countryName === country.countryName)) {
+      favorites.push(country);
       localStorage.setItem(this.storageKey, JSON.stringify(favorites));
     }
   }
 
-  removeFavorite(countryName: string): void {
+  removeFavorite(country: Favorite): void {
     let favorites = this.getFavorites();
-    favorites = favorites.filter(name => name !== countryName);
+    favorites = favorites.filter(fav => fav.countryName !== country.countryName);
     localStorage.setItem(this.storageKey, JSON.stringify(favorites));
   }
 
-  isFavorite(countryName: string): boolean {
-    return this.getFavorites().includes(countryName);
+  isFavorite(country: Favorite): boolean {
+    return this.getFavorites().includes(country);
   }
 }
 

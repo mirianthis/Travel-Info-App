@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FavoritesService } from '../../services/favorites/favorites.service';
+import { Favorite } from '../../models/favourites.model';
 
 @Component({
   selector: 'app-favourites',
@@ -7,16 +8,17 @@ import { FavoritesService } from '../../services/favorites/favorites.service';
   styleUrl: './favourites.component.css'
 })
 export class FavouritesComponent {
-  favoriteCountries: string[] = [];
+  favoriteCountries: Favorite[] = [];
+  displayedColumns: string[] = ['flag', 'name', 'region', 'population', 'actions'];
 
   constructor(private favoritesService: FavoritesService) {}
 
   ngOnInit(): void {
-    this.favoriteCountries = this.favoritesService.getFavorites();
+    this.favoriteCountries = this.favoritesService.getFavorites() || [];
   }
 
-  removeFavorite(countryName: string): void {
-    this.favoritesService.removeFavorite(countryName);
+  removeFavorite(country: Favorite): void {
+    this.favoritesService.removeFavorite(country);
     this.favoriteCountries = this.favoritesService.getFavorites();
   }
 }

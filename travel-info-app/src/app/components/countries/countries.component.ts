@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CountriesComponent {
   countries: any[] = [];
   searchTerm: string = '';
+  displayedColumns: string[] = ['flag', 'name', 'region', 'population', 'actions'];
 
   // Observables
   getAllCountries$: Observable<any> = this.countriesService.getAllCountries();

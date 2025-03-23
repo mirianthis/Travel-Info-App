@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
     }));
 
     this.populationChartOptions = {
+      fontSize: 10,
       animationEnabled: true,
       theme: "light2",
       title: {
@@ -64,6 +65,7 @@ export class DashboardComponent implements OnInit {
     }));
 
     this.countriesPerContinentChartOptions = {
+      fontSize: 10,
       animationEnabled: true,
       theme: "light2",
       title: {

@@ -12,6 +12,10 @@
   color: white;
 }
 
+.menu-btn {
+  color: white;
+}
+
 .language {
   right: 10vw;
   display: flex;
@@ -20,14 +24,25 @@
   align-items: center;
 }
 
+.dropdown-btn {
+  color: white;
+  background-color: transparent;
+  border: transparent;
+}
+
 .mat-toolbar {
-  background-color: lightgray;
+  background-color: rgb(26, 26, 29);
 }
 
 .sidenav-container {
-  height: 100dvh;
+  height: calc(100dvh - 64px);
 }
 
 .sidenav-side {
   width: 15dvw;
+  background-color: white;
+}
+
+.side-icon {
+  margin-right: 5px;
 }

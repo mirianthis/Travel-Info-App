@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CountriesService } from '../../../services/countries/countries.service';
 import { map, Observable } from 'rxjs';
 import { FavoritesService } from '../../../services/favorites/favorites.service';
+import { Favorite } from '../../../models/favourites.model';
 
 @Component({
   selector: 'app-country-detail',
@@ -16,7 +17,8 @@ export class CountryDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private countriesService: CountriesService,
-    private favoritesService: FavoritesService
+    private favoritesService: FavoritesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,13 +34,17 @@ export class CountryDetailComponent implements OnInit {
     }
   }
 
-  toggleFavorite(countryName: string): void {
+  toggleFavorite(countryName: Favorite): void {
     if (this.isFavorite) {
       this.favoritesService.removeFavorite(countryName);
     } else {
       this.favoritesService.addFavorite(countryName);
     }
     this.isFavorite = !this.isFavorite;
+  }
+
+  back() {
+    this.router.navigate(['/countries']);
   }
 }
 
