@@ -1,0 +1,66 @@
+.agent-board {
+  padding: 20px;
+}
+
+.agent-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+p {
+  font-size: 16px;
+  color: #7f8c8d;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.trips, .clients {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.trip-card, .client-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.trip-info, .client-info {
+  display: flex;
+  align-items: center;
+}
+
+.trip-flag {
+  width: 30px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.status-actions {
+  display: flex;
+  gap: 10px;
+}

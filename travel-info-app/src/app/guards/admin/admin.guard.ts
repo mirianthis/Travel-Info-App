@@ -15,8 +15,9 @@ export class AdminGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     // Check if the user is logged in and has an admin role
-    const role = this.storageService.getUserRole();
-    if (role === 'admin') {
+    let user = this.storageService.getUser();
+    let roles = user.roles;
+    if (roles[0] === 'ROLE_ADMIN') {
       return true; // Admin users can access the route
     } else {
       this.router.navigate(['/access-denied']); // Redirect to access-denied if not admin

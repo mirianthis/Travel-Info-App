@@ -1,1 +1,43 @@
-<p>agent-board works!</p>
+<div class="agent-board">
+  <!-- Agent Header -->
+  <div class="agent-header">
+    <h2>Agent Dashboard</h2>
+    <p>Manage your clients and trips</p>
+  </div>
+
+  <!-- Trips Section -->
+  <div class="section">
+    <h3>Manage Trips</h3>
+    <div class="trips">
+      <div *ngFor="let trip of trips" class="trip-card">
+        <div class="trip-info">
+          <img [src]="trip.meta?.flag" class="trip-flag" alt="Country Flag">
+          <div>
+            <h4>{{ trip.title }}</h4>
+            <p>{{ trip.start | date: 'fullDate' }}</p>
+          </div>
+        </div>
+        <button mat-button color="primary" (click)="viewTripDetails(trip)">View Details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clients Section -->
+  <div class="section">
+    <h3>Manage Clients</h3>
+    <div class="clients">
+      <div *ngFor="let client of clients" class="client-card">
+        <div class="client-info">
+          <h4 style="margin-right: 10px;">{{ client.name }}</h4>
+          <p style="margin-right: 10px;"><strong>Trip:</strong> {{ client.trip }}</p>
+          <p><strong>Status:</strong> {{ client.bookingStatus }}</p>
+        </div>
+        <div class="status-actions">
+          <button mat-button color="primary" (click)="updateBookingStatus(client, 'Confirmed')">Confirm</button>
+          <button mat-button color="warn" (click)="updateBookingStatus(client, 'Pending')">Mark as Pending</button>
+          <button mat-button color="accent" (click)="updateBookingStatus(client, 'Cancelled')">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

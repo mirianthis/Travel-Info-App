@@ -16,8 +16,9 @@ export class AgentGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     // Check if the user is logged in and has either an admin or agent role
-    const role = this.storageService.getUserRole();
-    if (role === 'admin' || role === 'agent') {
+    let user = this.storageService.getUser();
+    let roles = user.roles;
+    if (roles[0] === 'ROLE_ADMIN' || roles[0] === 'ROLE_AGENT') {
       return true; // Admin and agent users can access the route
     } else {
       this.router.navigate(['/access-denied']); // Redirect to access-denied if not admin or agent

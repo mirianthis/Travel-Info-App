@@ -26,15 +26,6 @@ export class StorageService {
     return {};
   }
 
-  public getUserRole(): string | null {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
-      const parsedUser = JSON.parse(user);
-      return parsedUser.role;
-    }
-    return null;
-  }
-
   public isLoggedIn(): boolean {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {

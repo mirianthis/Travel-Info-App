@@ -1,1 +1,21 @@
-<p>traveler-board works!</p>
+<div class="board-container">
+  <div class="board-header">
+    <h2>Traveler Board</h2>
+    <p>View and manage your upcoming trips</p>
+  </div>
+
+  <div class="trips-grid">
+    <div *ngFor="let trip of trips" class="trip-card" (click)="removeTrip(trip)">
+      <div class="trip-card-header">
+        <img [src]="trip.meta?.flag" class="trip-flag" alt="Country Flag">
+        <h3>{{ trip.title }}</h3>
+      </div>
+      <p>{{ trip.start | date: 'fullDate' }}</p>
+      <div class="remove-btn">
+        <button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,40 @@
-<p>admin-board works!</p>
+<div class="admin-board">
+  <!-- Admin Header -->
+  <div class="admin-header">
+    <h2>Admin Dashboard</h2>
+    <p>Manage trips, users, and events</p>
+  </div>
+
+  <!-- Trips Section -->
+  <div class="section">
+    <h3>Manage Trips</h3>
+    <div class="trips">
+      <div *ngFor="let trip of trips" class="trip-card">
+        <div class="trip-info">
+          <img [src]="trip.meta?.flag" class="trip-flag" alt="Country Flag">
+          <div>
+            <h4>{{ trip.title }}</h4>
+            <p>{{ trip.start | date: 'fullDate' }}</p>
+          </div>
+        </div>
+        <button mat-button color="warn" (click)="removeTrip(trip)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Users Section -->
+  <div class="section">
+    <h3>Manage Users</h3>
+    <div class="users">
+      <div *ngFor="let user of users" class="user-card">
+        <div class="user-info">
+          <h4 style="margin-right: 10px;">{{ user.name }}</h4>
+          <p style="margin-right: 10px;">{{ user.email }}</p>
+          <p><strong>Role:</strong> {{ user.role }}</p>
+        </div>
+        <button mat-button color="primary" (click)="changeUserRole(user, 'Admin')">Promote to Admin</button>
+        <button mat-button color="warn" (click)="removeUser(user)">Remove User</button>
+      </div>
+    </div>
+  </div>
+</div>
