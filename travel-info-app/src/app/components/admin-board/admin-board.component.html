@@ -17,7 +17,7 @@
             <p>{{ trip.start | date: 'fullDate' }}</p>
           </div>
         </div>
-        <button mat-button color="warn" (click)="removeTrip(trip)">Remove</button>
+        <button mat-button color="warn" (click)="removeTrip(trip)">{{'buttons.remove' | translate}}</button>
       </div>
     </div>
   </div>
@@ -32,8 +32,8 @@
           <p style="margin-right: 10px;">{{ user.email }}</p>
           <p><strong>Role:</strong> {{ user.role }}</p>
         </div>
-        <button mat-button color="primary" (click)="changeUserRole(user, 'Admin')">Promote to Admin</button>
-        <button mat-button color="warn" (click)="removeUser(user)">Remove User</button>
+        <button mat-button color="primary" (click)="changeUserRole(user, 'Admin')">{{'buttons.promoteAdmin' | translate}}</button>
+        <button mat-button color="warn" (click)="removeUser(user)">{{'buttons.removeUser' | translate}}</button>
       </div>
     </div>
   </div>

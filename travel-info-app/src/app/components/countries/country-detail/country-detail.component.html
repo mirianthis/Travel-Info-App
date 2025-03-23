@@ -9,11 +9,11 @@
     <p><strong>Currencies:</strong> {{ country.currencies | json }}</p>
     <div class="buttons-container d-flex">
       <button class="fav-button" (click)="toggleFavorite(country)">
-        {{ isFavorite ? 'Remove from Favorites' : 'Add to Favorites' }}
+        {{ isFavorite ? ('buttons.removeFavorites' | translate) :  ('buttons.addFavorites' | translate) }}
       </button>
       
       <button class="back-button" (click)="back()">
-        Back
+        {{ 'buttons.back' | translate }}
       </button>
     </div>
   </div>

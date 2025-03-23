@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "dashboard": "Πίνακας Ελέγχου",
+    "countries": "Χώρες",
+    "calendar": "Ημερολόγιο",
+    "favorites": "Αγαπημένα",
+    "travelerBoard": "Πίνακας Ταξιδιωτών",
+    "agentBoard": "Πίνακας Πράκτορα",
+    "adminBoard": "Πίνακας Διαχειριστή"
+  },
+  "buttons": {
+    "submit": "Υποβολή",
+    "cancel": "Ακύρωση",
+    "logout": "Αποσύνδεση",
+    "viewDetails": "Προβολή Λεπτομερειών",
+    "addFavorites": "Προσθήκη στα Αγαπημένα",
+    "removeFavorites": "Αφαίρεση από τα Αγαπημένα",
+    "back": "Πίσω",
+    "addCalendar": "Προσθήκη στο Ημερολόγιο",
+    "remove": "Αφαίρεση",
+    "removeUser": "Αφαίρεση Χρήστη",
+    "promoteAdmin": "Αναβάθμιση σε Διαχειριστή",
+    "confirm": "Επιβεβαίωση",
+    "markPending": "Σήμανση ως Εκκρεμές"
+  },
+  "language": {
+    "english": "Αγγλικά",
+    "greek": "Ελληνικά"
+  }
+}

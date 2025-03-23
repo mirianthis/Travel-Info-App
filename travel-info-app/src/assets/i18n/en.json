@@ -1,16 +1,30 @@
 {
   "menu": {
-    "home": "Home",
-    "about": "About",
-    "contact": "Contact"
+    "dashboard": "Dashboard",
+    "countries": "Countries",
+    "calendar": "Calendar",
+    "favorites": "Favorites",
+    "travelerBoard": "Traveler Board",
+    "agentBoard": "Agent Board",
+    "adminBoard": "Admin Board"
   },
   "buttons": {
     "submit": "Submit",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "logout": "Logout",
+    "viewDetails": "View Details",
+    "addFavorites": "Add to Favorites",
+    "removeFavorites": "Remove from Favorites",
+    "back": "Back",
+    "addCalendar": "Add to Calendar",
+    "remove": "Remove",
+    "removeUser": "Remove User",
+    "promoteAdmin": "Promote to Admin",
+    "confirm": "Confirm",
+    "markPending": "Mark as Pending"
   },
-  "countries": {
-    "US": "United States",
-    "ES": "Spain",
-    "FR": "France"
+  "language": {
+    "english": "English",
+    "greek": "Greek"
   }
 }

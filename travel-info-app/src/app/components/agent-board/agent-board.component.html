@@ -17,7 +17,7 @@
             <p>{{ trip.start | date: 'fullDate' }}</p>
           </div>
         </div>
-        <button mat-button color="primary" (click)="viewTripDetails(trip)">View Details</button>
+        <button mat-button color="primary" (click)="viewTripDetails(trip)">{{'buttons.viewDetails' | translate}}</button>
       </div>
     </div>
   </div>
@@ -33,9 +33,9 @@
           <p><strong>Status:</strong> {{ client.bookingStatus }}</p>
         </div>
         <div class="status-actions">
-          <button mat-button color="primary" (click)="updateBookingStatus(client, 'Confirmed')">Confirm</button>
-          <button mat-button color="warn" (click)="updateBookingStatus(client, 'Pending')">Mark as Pending</button>
-          <button mat-button color="accent" (click)="updateBookingStatus(client, 'Cancelled')">Cancel</button>
+          <button mat-button color="primary" (click)="updateBookingStatus(client, 'Confirmed')">{{'buttons.confirm' | translate}}</button>
+          <button mat-button style="color: goldenrod;" (click)="updateBookingStatus(client, 'Pending')">{{'buttons.markPending' | translate}}</button>
+          <button mat-button color="accent" (click)="updateBookingStatus(client, 'Cancelled')">{{'buttons.cancel' | translate}}</button>
         </div>
       </div>
     </div>
