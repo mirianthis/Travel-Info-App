@@ -11,6 +11,7 @@ import { debounceTime, distinctUntilChanged, Observable, Subscription, switchMap
 export class CalendarComponent implements OnInit, OnDestroy {
   viewDate: Date = new Date(); // Default to today
   events: CalendarEvent[] = [];
+
   selectedCountry: string = '';
   countries: any[] = [];
   filteredCountries: any[] = [];
@@ -18,18 +19,18 @@ export class CalendarComponent implements OnInit, OnDestroy {
   selectedDate: Date | null = null;
 
 
-  private subscription: Subscription = new Subscription();
+  private countriesSubscription: Subscription = new Subscription();
 
   constructor(private countriesService: CountriesService) { }
 
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.countriesSubscription.unsubscribe();
   }
 
   ngOnInit(): void {
     // Fetch all countries to populate the initial list
-    this.countriesService.getAllCountries().subscribe(
+    this.countriesSubscription = this.countriesService.getAllCountries().subscribe(
       (data) => {
         this.countries = data;
         this.filteredCountries = data;
@@ -59,16 +60,18 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   addEvent(country: any, date: Date) {
-    console.log('Adding event with:', country, date);
 
     if (country && date) {
       this.events.push({
-        title: country.name.common, // Country name in title
+        title: country.name.common,
         start: date,
+        color: { primary: '#1e90ff', secondary: '#D1E8FF' }, 
+        meta: {
+          flag: country.flags.png
+        }
       });
 
-      // Force the calendar to refresh
-      this.viewDate = new Date();
+      this.viewDate = new Date(); // Refresh calendar view
     } else {
       console.log('Error: Missing country or date.');
     }
@@ -78,5 +81,20 @@ export class CalendarComponent implements OnInit, OnDestroy {
   removeEvent(eventToRemove: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToRemove);
   }
+
+  // Navigate to the previous month
+  goToPreviousMonth() {
+    const previousMonth = new Date(this.viewDate);
+    previousMonth.setMonth(previousMonth.getMonth() - 1);
+    this.viewDate = previousMonth;
+  }
+
+  // Navigate to the next month
+  goToNextMonth() {
+    const nextMonth = new Date(this.viewDate);
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+    this.viewDate = nextMonth;
+  }
+
 }
 

@@ -6,8 +6,8 @@
     <input class="search-input" type="text" [(ngModel)]="searchTerm" placeholder="Search for a country..." />
   </div>
 
-   <!-- Table with Country Data -->
-   <div class="country-table">
+  <!-- Table with Country Data -->
+  <div class="country-table">
     <table mat-table [dataSource]="(getAllCountries$ | async) | filter: searchTerm">
       <!-- Column Definitions -->
       <ng-container matColumnDef="flag">
@@ -34,9 +34,11 @@
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let country" >
+        <td mat-cell *matCellDef="let country">
           <!-- <button mat-raised-button color="primary" (click)="addToFavorites(country)">Add to Favorites</button> -->
-          <button (click)="viewDetails(country.name.common)">View Details</button>
+          <button class="details-button d-flex" (click)="viewDetails(country.name.common)">
+            <mat-icon style="margin-right: 5px;">info</mat-icon>
+            {{ 'buttons.viewDetails' | translate }}</button>
         </td>
       </ng-container>
 
@@ -46,4 +48,3 @@
     </table>
   </div>
 </div>
-  

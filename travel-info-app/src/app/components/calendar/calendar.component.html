@@ -1,34 +1,67 @@
-<ng-container *ngIf="events.length === 0">
-  <p>No trips planned. Add a country to the calendar!</p>
-</ng-container>
 
-<!-- Select with Autocomplete -->
-<mat-form-field>
-  <input matInput [(ngModel)]="selectedCountry" placeholder="Enter Country Name" [matAutocomplete]="auto" (ngModelChange)="onCountryChange()">
-  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCountrySelect($event.option.value)">
-    <mat-option *ngFor="let country of filteredCountries" [value]="country">
-      <img [src]="country.flags.png" alt="{{ country.name.common }} flag" style="width: 20px; height: 15px;"/>
-      {{ country.name.common }}
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>
+<div class="add-event d-flex">
+  <!-- Select with Autocomplete -->
+  <mat-form-field class="country-name">
+    <input matInput [(ngModel)]="selectedCountry" placeholder="Enter Country Name" [matAutocomplete]="auto" (ngModelChange)="onCountryChange()">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCountrySelect($event.option.value)">
+      <mat-option *ngFor="let country of filteredCountries" [value]="country">
+        <img [src]="country.flags.png" alt="{{ country.name.common }} flag" style="width: 20px; height: 15px;"/>
+        {{ country.name.common }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  
+  <!-- Datepicker Field -->
+  <mat-form-field class="date-pick">
+    <input matInput [(ngModel)]="selectedDate" [matDatepicker]="picker" placeholder="Pick a Date">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  
+  <div class="btn-container d-flex" style="align-items: flex-start;">
+    <button class="add-btn" mat-raised-button (click)="addEvent(selectedCountryDetails, selectedDate!)">
+      {{'buttons.addCalendar' | translate}}
+    </button>
+  </div>
 
-<!-- Datepicker Field -->
-<mat-form-field>
-  <input matInput [(ngModel)]="selectedDate" [matDatepicker]="picker" placeholder="Pick a Date">
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+</div>
 
-<button mat-raised-button color="primary" (click)="addEvent(selectedCountryDetails, selectedDate!)">
-  Add to Calendar
-</button>
+<div class="calendar">
+  <div class="calendar-navigation d-flex">
+    <button class="month-buttons" mat-raised-button (click)="goToPreviousMonth()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button class="month-buttons" mat-raised-button (click)="goToNextMonth()">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <span style="font-size: large;">{{ viewDate | date: 'dd MMMM yyyy' }}</span>
+  </div>
 
-<!-- Calendar View -->
-<mwl-calendar-month-view
-  [viewDate]="viewDate"
-  [events]="events"
-  (eventClicked)="removeEvent($event.event)">
-</mwl-calendar-month-view>
+  <mwl-calendar-month-view 
+    [viewDate]="viewDate"
+    [events]="events"
+    [cellTemplate]="customCellTemplate">
+  </mwl-calendar-month-view>
+  
+  <!-- Custom Cell Template -->
+  <ng-template #customCellTemplate let-day="day">
+    <div class="calendar-cell">
+      <span class="day-number">{{ day.date | date:'d' }}</span>
+  
+      <div *ngIf="day.events.length > 0" class="event-container">
+        <div *ngFor="let event of day.events" class="event-item" (click)="removeEvent(event)">
+          <img *ngIf="event.meta?.flag" [src]="event.meta.flag" class="flag-icon">
+          <span>{{ event.title }}</span>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</div>
+
+
+
+
+
 
 

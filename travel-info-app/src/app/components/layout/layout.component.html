@@ -11,10 +11,10 @@
     </button>
     <mat-menu #language="matMenu">
       <button mat-menu-item (click)="switchLanguage('en')">
-        <span>English</span>
+        <span>{{ 'language.english' | translate }}</span>
       </button>
       <button mat-menu-item (click)="switchLanguage('gr')">
-        <span>Greek</span>
+        <span>{{ 'language.greek' | translate }}</span>
       </button>
     </mat-menu>
   </div>
@@ -25,7 +25,7 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="logout()">
-        <span>Logout</span>
+        <span>{{ 'buttons.logout' | translate }}</span>
       </button>
     </mat-menu>
   </div>
@@ -37,37 +37,37 @@
     <mat-nav-list class="nav-list">
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
         <mat-icon class="d-flex side-icon">dashboard</mat-icon>
-        <label>Dashboard</label>
+        <label>{{ 'menu.dashboard' | translate }}</label>
         
       </a>
       <a mat-list-item routerLink="/countries" routerLinkActive="active">
         <mat-icon class="d-flex side-icon">place</mat-icon>
-        Countries
+        <label>{{ 'menu.countries' | translate }}</label>
       </a>
       <a mat-list-item routerLink="/favorites" routerLinkActive="active">
         <mat-icon class="d-flex side-icon">favorite</mat-icon>
-        Favorites
+        <label>{{ 'menu.favorites' | translate }}</label>
       </a>
       <a mat-list-item routerLink="/calendar" routerLinkActive="active">
         <mat-icon class="d-flex side-icon">calendar_today</mat-icon>
-        Calendar
+        <label>{{ 'menu.calendar' | translate }}</label>
       </a>
       <a mat-list-item routerLink="/traveler-board" routerLinkActive="active">
         <mat-icon class="d-flex side-icon">card_travel</mat-icon>
-        Traveler Board
+        <label>{{ 'menu.travelerBoard' | translate }}</label>
       </a>
       <a *ngIf="showAdminBoard" mat-list-item routerLink="/admin-board" routerLinkActive="active">
         <mat-icon class="d-flex side-icon">people</mat-icon>
-        Admin Board
+        <label>{{ 'menu.adminBoard' | translate }}</label>
       </a>
-      <a *ngIf="showAgentBoard" mat-list-item routerLink="/agent-board" routerLinkActive="active">
+      <a *ngIf="showAgentBoard || showAdminBoard" mat-list-item routerLink="/agent-board" routerLinkActive="active">
         <mat-icon class="d-flex side-icon">map</mat-icon>
-        Agent Board
+        <label>{{ 'menu.agentBoard' | translate }}</label>
       </a>
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content [ngStyle]="{ 'width': isSidenavOpened ? '85dvw' : '100dvw' }">
+  <mat-sidenav-content [ngStyle]="{ 'width': isSidenavOpened ? '85dvw' : '100dvw' }" class="d-flex">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 

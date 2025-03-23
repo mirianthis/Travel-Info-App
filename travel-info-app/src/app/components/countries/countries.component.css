@@ -36,8 +36,13 @@ mat-header-row {
   background-color: #f5f5f5;
 }
 
-button {
-  width: 100%;
+.details-button {
+  width: 50%;
+  height: 30px;
+  background: rgb(130, 203, 228);
+  color: white;
+  border-color: transparent;
+  cursor: pointer;
 }
 
 

@@ -13,7 +13,7 @@ export class CountriesService {
 
   // Fetch all countries with selected fields
   getAllCountries(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/all?fields=name,flags,capital,population,region`);
+    return this.http.get<any>(`${this.apiUrl}/all?fields=name,flags,capital,population,region,continents`);
   }
 
   // Fetch details of a single country by name
