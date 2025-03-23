@@ -12,6 +12,7 @@ export class FavoritesService {
   getFavorites(): Favorite[] {
     return JSON.parse(localStorage.getItem(this.storageKey) || '[]');
   }
+  
 
   addFavorite(country: Favorite): void {
     const favorites = this.getFavorites();
@@ -20,15 +21,17 @@ export class FavoritesService {
       localStorage.setItem(this.storageKey, JSON.stringify(favorites));
     }
   }
+  
 
-  removeFavorite(country: Favorite): void {
+  removeFavorite(countryName: string): void {
     let favorites = this.getFavorites();
-    favorites = favorites.filter(fav => fav.countryName !== country.countryName);
+    favorites = favorites.filter(fav => fav.countryName !== countryName);
     localStorage.setItem(this.storageKey, JSON.stringify(favorites));
   }
 
-  isFavorite(country: Favorite): boolean {
-    return this.getFavorites().includes(country);
+  isFavorite(countryName: string): boolean {
+    const favorites = this.getFavorites();
+    return favorites.some(fav => fav.countryName === countryName);
   }
 }
 

@@ -80,11 +80,11 @@ export class DashboardComponent implements OnInit {
   }
 
   // Helper function to count countries per continent
-  countCountriesPerContinent(countries: any[]): { [region: string]: number } {
-    const continentCount: { [region: string]: number } = {};
+  countCountriesPerContinent(countries: any[]): { [continents: string]: number } {
+    const continentCount: { [continents: string]: number } = {};
 
     countries.forEach(country => {
-      const continent = country.region?.[0];
+      const continent = country.continents?.[0];
       if (continent) {
         continentCount[continent] = (continentCount[continent] || 0) + 1;
       }

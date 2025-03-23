@@ -13,6 +13,7 @@ import { Favorite } from '../../../models/favourites.model';
 export class CountryDetailComponent implements OnInit {
   country$!: Observable<any>;
   isFavorite = false;
+  countryName!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,20 +28,28 @@ export class CountryDetailComponent implements OnInit {
       this.country$ = this.countriesService.getCountryByName(name)
         .pipe(map(data => {
           const country = data[0];
-          this.isFavorite = this.favoritesService.isFavorite(country.name.common);
+          this.countryName = country.name.common;
+          this.isFavorite = this.favoritesService.isFavorite(this.countryName);
           return country;
         }
       ));
     }
   }
 
-  toggleFavorite(countryName: Favorite): void {
+   // Toggle favorite status for the current country
+   toggleFavorite(country: any): void {
     if (this.isFavorite) {
-      this.favoritesService.removeFavorite(countryName);
+      this.favoritesService.removeFavorite(this.countryName);
     } else {
-      this.favoritesService.addFavorite(countryName);
+      const favoriteCountry = {
+        countryName: country.name.common,
+        flags: country.flags.svg,
+        region: country.region,
+        population: country.population
+      };
+      this.favoritesService.addFavorite(favoriteCountry);
     }
-    this.isFavorite = !this.isFavorite;
+    this.isFavorite = !this.isFavorite; // Toggle the flag
   }
 
   back() {

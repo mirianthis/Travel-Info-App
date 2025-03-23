@@ -1,19 +1,32 @@
 .dashboard-container {
   width: 100%;
-  height: 100%;
   flex-direction: column;
+}
+
+.header-title {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-bottom: 50px;
+  width: 97%;
+  margin-top: 30px;
+}
+
+.population-chart {
+  margin-bottom: 30px;
+}
+
+.continent-chart {
+  margin-top: 30px;
 }
 
 .chart-container {
   width: 60%;
   height: 30%;
-  margin: 0 auto;
   padding: 20px;
 }
 
 canvas {
   display: block;
-  /* max-width: 100%; */
   height: auto;
   margin-top: 20px;
 }

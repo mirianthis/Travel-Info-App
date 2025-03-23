@@ -14,11 +14,11 @@ export class FavouritesComponent {
   constructor(private favoritesService: FavoritesService) {}
 
   ngOnInit(): void {
-    this.favoriteCountries = this.favoritesService.getFavorites() || [];
+    this.favoriteCountries = this.favoritesService.getFavorites();
   }
 
   removeFavorite(country: Favorite): void {
-    this.favoritesService.removeFavorite(country);
+    this.favoritesService.removeFavorite(country.countryName);
     this.favoriteCountries = this.favoritesService.getFavorites();
   }
 }
