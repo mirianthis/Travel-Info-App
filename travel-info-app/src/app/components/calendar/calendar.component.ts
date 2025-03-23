@@ -82,14 +82,12 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.events = this.events.filter(event => event !== eventToRemove);
   }
 
-  // Navigate to the previous month
   goToPreviousMonth() {
     const previousMonth = new Date(this.viewDate);
     previousMonth.setMonth(previousMonth.getMonth() - 1);
     this.viewDate = previousMonth;
   }
 
-  // Navigate to the next month
   goToNextMonth() {
     const nextMonth = new Date(this.viewDate);
     nextMonth.setMonth(nextMonth.getMonth() + 1);
