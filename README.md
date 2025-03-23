@@ -81,24 +81,4 @@ Clone the repository:
 - ✅ **View favorite countries**
 - ✅ **Dashboard with population comparison chart and countries per continent chart**
 
----
-
-## Folder Structure
-
-travel-info-app/
-│── src/
-│   ├── app/
-│   │   ├── components/   # Reusable components
-│   │   ├── services/     # API calls & business logic
-│   │   ├── interceptors/ # Interceptors
-│   │   ├── guards/       # Route guards for authentication
-│   │   ├── models/       # Interfaces & types
-│   │   ├── pipes/        # Pipes
-│   │   ├── app.module.ts
-│   │   ├── app.component.ts
-│   ├── assets/          # Static assets (icons, translations)
-│   ├── environments/    # Environment-specific config
-│── angular.json
-│── package.json
-│── README.md
 
