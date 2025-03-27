@@ -22,10 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Compiled files
-*.js
-*.map
-*.d.ts
+
 
 # Misc
 .DS_Store
