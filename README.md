@@ -18,6 +18,7 @@ This is an Angular-based **Travel Info App** that provides information about dif
 ### Prerequisites
 Make sure you have the following installed:
 - **Node.js** (v16 or later) - [Download Here](https://nodejs.org/)
+- **Mongo DB** (https://www.mongodb.com/docs/manual/installation/)
 - **Angular CLI** (v16 or later) - Install via:
   
   ```sh
@@ -30,22 +31,51 @@ Clone the repository:
  ```sh
  git clone https://github.com/mirianthis/travel-info-app.git
  ```
+
+#### Frontend
+
  Navigate to the project directory:
  
  ```sh
- cd travel-info-app
+ cd .\Frontend\travel-info-app\
 ```
  Install dependencies:
  
  ```sh
  npm install
 ```
- Run the development server:
+ Run the development server on port 8081:
  
  ```sh
- ng serve
+ ng serve --port 8081
 ```
- The app should now be available at http://localhost:4200/.
+ The app should now be available at http://localhost:8081/.
+
+ ---
+
+#### Backend
+
+ Navigate to the project directory:
+ 
+ ```sh
+ cd .\Backend
+```
+ Install dependencies:
+ 
+ ```sh
+ npm install
+```
+ Point the backend to your DB:
+ 
+ ```sh
+ Navigate to the db.config.js( Backend -> app -> config -> db.config.js) and make the necessary changes to point to your DB.
+```
+ Run the development server on port 8081:
+ 
+ ```sh
+ node server.js
+```
+ The server should now be available at http://localhost:8080/.
 
  ---
 
